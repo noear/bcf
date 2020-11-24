@@ -1,0 +1,17 @@
+/* git lab */
+body > header > div{width: 100%;}
+body > header agroup{width: 160px; margin: 0px; line-height: 50px; background: #000;}
+
+body > header {height: 50px;background:  #292961; color: #ffffff;}
+body > header a{color: #f1f1f1;text-decoration:none;font-size: 14px;}
+body > header a:hover{color: #c5d9f4; background-color: #4a4c7a; border-radius: 5px;}
+body > header nav{padding-left: 10px;}
+body > header nav a.sel{color: #292961; background-color: #fff; border-radius: 5px; }
+
+main > left{background: #333744; }
+
+left menu > div{color: #5b6273; border-bottom: #292961 1px solid;border-top: #292961 1px solid;}/*4a5063*/
+left menu > div:hover{background-color: #4b5163;}
+left menu a {color: #fff; }
+left menu a.sel { background-color: #292961;}
+left menu a:not(.sel):hover { background-color: #1a2028;color:#00c1de;}
