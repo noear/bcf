@@ -42,7 +42,7 @@ public class HeaderTag implements TemplateDirectiveModel {
 
     private void build(Environment env,TemplateDirectiveBody body) throws Exception {
         Context context = Context.current();
-        //当前视图path //此处改过，xyj，20180831
+        //当前视图path //此处改过，20180831
         String cPath = context.path();
 
         BcfClientEx bcfClient = null;
@@ -130,7 +130,7 @@ public class HeaderTag implements TemplateDirectiveModel {
             return;
         }
 
-        //此处改过，xyj，201811(uadmin)
+        //此处改过，201811(uadmin)
         String newUrl = BcfUtilEx.buildBcfUnipath(res);
 
         if (cPath.indexOf(pack) == 0) {
