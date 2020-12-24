@@ -41,7 +41,7 @@ public class LeftmenuTag implements TemplateDirectiveModel {
     public void build(Environment env,TemplateDirectiveBody body) throws Exception {
 
         Context context = Context.current();
-        //当前视图path //此处改过，xyj，20180831
+        //当前视图path //此处改过，20180831
         String cPath = context.path();
         StringWriter sb = new StringWriter();
         BcfClientEx bcfClient = null;

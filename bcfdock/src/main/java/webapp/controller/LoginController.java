@@ -64,7 +64,7 @@ public class LoginController extends BaseController {
         else {
             Session.current().loadModel(user);
 
-            //新方案 //xyj,20181120,(uadmin)
+            //新方案 //20181120,(uadmin)
 
             //最后一次使用的连接系统
             String res_root = ctx.cookie("_lLnQIO4W");
