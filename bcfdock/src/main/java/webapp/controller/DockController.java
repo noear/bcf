@@ -63,7 +63,7 @@ public class DockController extends BaseController {
     @Mapping("/**/$*") //视图 返回
     public ModelAndView dock1(Context ctx) {
         String uri = ctx.path();
-        String query =ctx.uri().getQuery();
+        String query =ctx.queryString();
 
         uri = BcfTool.clearSystemCodeByPath(uri);
 
@@ -88,7 +88,7 @@ public class DockController extends BaseController {
     @Mapping("/**/@*") //视图 返回
     public ModelAndView dock2(Context ctx) throws Exception {
         String uri = ctx.path();
-        String query = ctx.uri().getQuery();
+        String query = ctx.queryString();
 
         String fun_name = uri.split("/@")[1]; // /x/x/@x   =>  /x/x   +  服务监控
         String fun_url = uri.split("/@")[0];
