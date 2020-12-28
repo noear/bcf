@@ -3,17 +3,17 @@ package org.noear.bcf;
 import org.noear.bcf.models.BcfUserModel;
 import org.noear.solon.core.handle.Context;
 
-public abstract class XSessionBcf {
-    private static XSessionBcf _global;
+public abstract class BcfSessionBase {
+    private static BcfSessionBase _global;
 
     /**
      * 可能会是Null
      * */
-    public static XSessionBcf global(){
+    public static BcfSessionBase global(){
         return _global;
     }
 
-    public XSessionBcf() {
+    public BcfSessionBase() {
         if (_global == null) {
             _global = this;
         }

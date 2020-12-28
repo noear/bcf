@@ -3,7 +3,7 @@ package webapp.controller;
 
 import org.noear.solon.core.handle.Context;
 import org.noear.solon.core.handle.ModelAndView;
-import org.noear.water.solon_plugin.IPUtils;
+import org.noear.water.utils.IPUtils;
 import webapp.Config;
 
 

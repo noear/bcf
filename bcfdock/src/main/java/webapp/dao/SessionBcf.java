@@ -1,12 +1,12 @@
 package webapp.dao;
 
 import org.noear.bcf.models.BcfUserModel;
-import org.noear.bcf.XSessionBcf;
+import org.noear.bcf.BcfSessionBase;
 import webapp.Config;
 
 
 //Session对象
-public class SessionBcf extends XSessionBcf {
+public class SessionBcf extends BcfSessionBase {
     @Override
     public String service() {
         return Config.water_service_name;

@@ -5,7 +5,7 @@ import org.noear.solon.annotation.Mapping;
 import org.noear.solon.core.handle.Context;
 import org.noear.solon.core.handle.Handler;
 import org.noear.water.WaterClient;
-import org.noear.water.solon_plugin.IPUtils;
+import org.noear.water.utils.IPUtils;
 
 @Mapping(value = "**", before = true)
 @Component

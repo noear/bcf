@@ -18,7 +18,7 @@ public abstract class BcfInterceptorBase {
 
         if (getPUID() > 0) {
             ctx.attrSet("user_puid", "" + getPUID());
-            ctx.attrSet("user_name", XSessionBcf.global().getUserName());
+            ctx.attrSet("user_name", BcfSessionBase.global().getUserName());
         }
 
         if (uri.indexOf("/ajax/") < 0 && uri.equals("/login") ==false) {
