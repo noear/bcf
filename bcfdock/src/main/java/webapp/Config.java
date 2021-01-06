@@ -9,7 +9,6 @@ import org.noear.water.*;
 import webapp.dao.CacheUtil;
 
 public class Config {
-    //public static String web_title = "跨系统通用管理平台";
     public static String water_config_tag = "water";
     public static String water_service_name = "bcfdock";
 
