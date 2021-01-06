@@ -1,4 +1,4 @@
-package org.noear.bcf.solon_plugin;
+package org.noear.bcf.integration.solon;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.noear.bcf.BcfClient;
