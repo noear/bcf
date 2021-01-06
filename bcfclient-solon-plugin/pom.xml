@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.noear</groupId>
         <artifactId>bcf-parent</artifactId>
-        <version>2.0.4</version>
+        <version>2.0.5</version>
         <relativePath>../bcf-parent/pom.xml</relativePath>
     </parent>
 
