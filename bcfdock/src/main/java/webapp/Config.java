@@ -2,7 +2,6 @@ package webapp;
 
 import org.noear.bcf.BcfClientEx;
 import org.noear.solon.Solon;
-import org.noear.solon.Utils;
 import org.noear.water.model.ConfigM;
 import org.noear.weed.DbContext;
 import org.noear.weed.WeedConfig;
