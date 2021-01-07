@@ -47,8 +47,8 @@ public class LoginController extends BaseController {
             return viewModel.set("code", 0).set("msg", "提示：请输入账号和密码！");
         }
 
-        String user0 = Solon.cfg().get("wateradmin.user","");
-        String password0 = Solon.cfg().get("wateradmin.password","");
+        String user0 = Solon.cfg().get("bcfadmin.user","");
+        String password0 = Solon.cfg().get("bcfadmin.password","");
 
         boolean isLogin = (user0.equals(userName) && password0.equals(passWord));
 
