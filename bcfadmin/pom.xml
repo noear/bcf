@@ -21,12 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>org.noear</groupId>
-            <artifactId>solon-mvc</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.noear</groupId>
-            <artifactId>solon.extend.sessionstate.redis</artifactId>
+            <artifactId>solon-web</artifactId>
         </dependency>
 
         <dependency>
