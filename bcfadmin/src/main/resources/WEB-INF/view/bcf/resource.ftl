@@ -321,6 +321,7 @@
                 <div class="menu" id="addChild">新建资源</div>
                 <div class="menu" id="addResource">添加资源</div>
                 <div class="menu" id="removeResource">移除资源</div>
+                <hr/>
                 <div class="menu" id="copyResource">复制资源</div>
                 <div class="menu" id="pasteResource">粘贴资源</div>
             </div>
@@ -577,9 +578,14 @@
         $("#menu").hide()
         var active = $("#resources").find('.active')
         if (!active || !active.length) {
-            layer.msg('请选择需要删除的资源')
+            layer.msg('请选择需要移除的资源')
             return
         }
+
+        if(!confirm("确定要移除资源吗？")){
+            return;
+        }
+
         var arr = []
         active.each(function () {
             arr.push($(this).attr("rsid") - 0)
