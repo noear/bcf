@@ -57,13 +57,13 @@
     <form>
         <table>
             <tr>
-                <th>原密码：</th><td><input type="password" id="oldPass" placeholder="请输入原密码"></td>
+                <th>原密码：</th><td><input type="password" id="oldPass" ></td>
             </tr>
             <tr>
-                <th>新密码：</th><td><input type="password" id="newPass" placeholder="请输入新密码" ></td>
+                <th>新密码：</th><td><input type="password" id="newPass" ></td>
             </tr>
             <tr>
-                <th>确认新密码：</th><td><input type="password" id="conNewPass" placeholder="请确认新密码"></td>
+                <th>确认新密码：</th><td><input type="password" id="conNewPass" ></td>
             </tr>
             <tr>
                 <th></th><td><button type="button" onclick="confirm()">修改</button></td>
