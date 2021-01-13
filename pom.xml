@@ -6,7 +6,7 @@
 
     <groupId>org.noear</groupId>
     <artifactId>bcf_java</artifactId>
-    <version>2.0.6.1</version>
+    <version>pom</version>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
