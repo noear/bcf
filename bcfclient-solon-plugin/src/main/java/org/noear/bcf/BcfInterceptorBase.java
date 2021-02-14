@@ -31,7 +31,7 @@ public abstract class BcfInterceptorBase {
                 }
 
                 if (verifyUrlpath(uri) == false) {
-                    ctx.outputAsHtml("抱歉，没有权限!");
+                    ctx.outputAsHtml("Sorry, no permission!");
                     ctx.setHandled(true);
                     return;
                 }
