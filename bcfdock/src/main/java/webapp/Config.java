@@ -9,18 +9,16 @@ import org.noear.water.*;
 import webapp.dao.CacheUtil;
 
 public class Config {
-    public static String water_config_tag = "water";
-    public static String water_service_name = "bcfdock";
 
-    public static String alarm_sign(){
+    public static String alarm_sign() {
         return cfg("alarm_sign").getString("");
     }
 
-    public static String web_title(){
-        return cfg("bcfdock_title").getString("跨系统通用管理平台");
+    public static String web_title() {
+        return cfg("bcfdock_title").getString(Solon.cfg().appTitle());
     }
 
-    public static void tryInit(){
+    public static void tryInit() {
         WeedConfig.isDebug = false;
 
         WaterClient.Config.getProperties("water_session").forEach((k, v) -> {
@@ -41,6 +39,6 @@ public class Config {
 
     //获取一个缓存配置
     public static ConfigM cfg(String key) {
-        return WaterClient.Config.get(water_config_tag, key);
+        return WaterClient.Config.get(Solon.cfg().appGroup(), key);
     }
 }

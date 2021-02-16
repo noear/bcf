@@ -2,6 +2,7 @@ package webapp.dao;
 
 import org.noear.bcf.models.BcfUserModel;
 import org.noear.bcf.BcfSessionBase;
+import org.noear.solon.Solon;
 import webapp.Config;
 
 
@@ -9,7 +10,7 @@ import webapp.Config;
 public class SessionBcf extends BcfSessionBase {
     @Override
     public String service() {
-        return Config.water_service_name;
+        return Solon.cfg().appName();
     }
 
     //////////////////////////////////

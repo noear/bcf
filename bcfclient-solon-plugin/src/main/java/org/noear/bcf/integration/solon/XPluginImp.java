@@ -2,7 +2,9 @@ package org.noear.bcf.integration.solon;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.noear.bcf.BcfClient;
+import org.noear.solon.Solon;
 import org.noear.solon.SolonApp;
+import org.noear.solon.Utils;
 import org.noear.solon.core.Plugin;
 import org.noear.weed.DbContext;
 import org.noear.weed.cache.memcached.MemCache;
@@ -13,6 +15,10 @@ public class XPluginImp implements Plugin {
     @Override
     public void start(SolonApp app) {
         String p_root = app.cfg().get("bcf.root");
+        if(Utils.isEmpty(p_root)){
+            p_root = Solon.cfg().appName();
+        }
+
         Properties p_cache = app.cfg().getProp("bcf.cache");
         Properties p_db = app.cfg().getProp("bcf.db");
 
