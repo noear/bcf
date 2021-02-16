@@ -1,6 +1,7 @@
 package webapp.controller;
 
 
+import org.noear.solon.Solon;
 import org.noear.solon.core.handle.Context;
 import org.noear.solon.core.handle.ModelAndView;
 import org.noear.water.utils.IPUtils;
@@ -42,12 +43,12 @@ public abstract class BaseController {
         //设置必要参数
         viewModel.put("root", "");
 
-        viewModel.put("app", Config.web_title);
+        viewModel.put("app", Solon.cfg().appTitle());
 
         viewModel.put("css", "/_static/css");
         viewModel.put("js", "/_static/js");
         viewModel.put("img", "/_static/img");
-        viewModel.put("title", Config.web_title);
+        viewModel.put("title", Solon.cfg().appTitle());
 
         return new ModelAndView(viewName + ".ftl", viewModel);
     }

@@ -12,8 +12,6 @@ public class Config {
     public static final String BCF_RESOURCE_LINKED = "bcf_resource_linked";
     public static final String BCF_USER_LINKED = "bcf_user_linked";
 
-    public static String web_title = "BCF";
-
     /*相关状态控制*/
     public static DbContext bcf_db;
 
