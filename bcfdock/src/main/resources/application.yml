@@ -6,6 +6,12 @@ solon.app:
   group: "water"
   title: "跨系统通用管理平台"
 
-water.host: water
-water.service.name: bcfdock
-water.service.secretKey: oYjS1xaM2oPfEyKc
+#water.host: water
+#water.service.name: bcfdock
+#water.service.secretKey: oYjS1xaM2oPfEyKc
+
+solon.cloud.water:
+  server: "water"
+  config:
+    loadGroup: "water_bcf"
+    loadKey: "bcf.yml"

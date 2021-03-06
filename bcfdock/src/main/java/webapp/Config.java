@@ -2,12 +2,14 @@ package webapp;
 
 import org.noear.bcf.BcfClientEx;
 import org.noear.solon.Solon;
+import org.noear.solon.annotation.Configuration;
+import org.noear.solon.annotation.Init;
 import org.noear.water.model.ConfigM;
 import org.noear.weed.DbContext;
-import org.noear.weed.WeedConfig;
 import org.noear.water.*;
 import webapp.dao.CacheUtil;
 
+@Configuration
 public class Config {
 
     public static String alarm_sign() {
@@ -18,20 +20,8 @@ public class Config {
         return cfg("bcfdock_title").getString(Solon.cfg().appTitle());
     }
 
-    public static void tryInit() {
-        WeedConfig.isDebug = false;
-
-        WaterClient.Config.getProperties("water_session").forEach((k, v) -> {
-            if (Solon.cfg().isDebugMode()) {
-                String key = k.toString();
-                if (key.indexOf(".session.") < 0) {
-                    Solon.cfg().put(k, v);
-                }
-            } else {
-                Solon.cfg().put(k, v);
-            }
-        });
-
+    @Init
+    public void init() {
         DbContext bcf_db = new DbContext(Solon.cfg().getProp("bcf.db"));
 
         BcfClientEx.tryInit(CacheUtil.dataCache, bcf_db);
