@@ -1,0 +1,19 @@
+server.port: 8123
+server.session.timeout: 7200
+
+solon.app:
+  name: bcfadmin
+  group: water
+  title: BCF
+
+#water.host=water
+#water.service.name=bcfadmin
+
+bcfadmin.user: admin
+bcfadmin.password: SykSYLWN9WTpzCHq
+
+solon.cloud.water:
+  server: "water"
+  config:
+    loadGroup: "water_bcf"
+    loadKey: "bcf.yml"

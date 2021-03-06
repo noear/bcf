@@ -1,9 +1,12 @@
 package webapp;
 
 import org.noear.solon.Solon;
-import org.noear.water.WaterClient;
+import org.noear.solon.annotation.Configuration;
+import org.noear.solon.annotation.Init;
+import org.noear.solon.cloud.CloudClient;
 import org.noear.weed.DbContext;
 
+@Configuration
 public class Config {
 
     public static final int lk_objt_group = 2;
@@ -15,19 +18,9 @@ public class Config {
     /*相关状态控制*/
     public static DbContext bcf_db;
 
-
-    public static void tryInit(){
-        WaterClient.Config.getProperties("water_session").forEach((k, v) -> {
-            if (Solon.cfg().isDebugMode()) {
-                String key = k.toString();
-                if (key.indexOf(".session.") < 0) {
-                    Solon.cfg().put(k, v);
-                }
-            } else {
-                Solon.cfg().put(k, v);
-            }
-        });
-
+    @Init
+    public void init() {
         bcf_db = new DbContext(Solon.cfg().getProp("bcf.db"));
+        CloudClient.configLoad("water_bcf", "bcfadmin.yml");
     }
 }

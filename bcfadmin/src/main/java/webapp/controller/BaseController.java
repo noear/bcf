@@ -5,7 +5,6 @@ import org.noear.solon.Solon;
 import org.noear.solon.core.handle.Context;
 import org.noear.solon.core.handle.ModelAndView;
 import org.noear.water.utils.IPUtils;
-import webapp.Config;
 
 
 /**
