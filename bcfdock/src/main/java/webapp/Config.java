@@ -12,11 +12,11 @@ import webapp.dao.CacheUtil;
 @Configuration
 public class Config {
 
-    public static String alarm_sign() {
-        return cfg("alarm_sign").getString("");
+    public static String bcfdock_env() {
+        return cfg("bcfdock_env").getString("");
     }
 
-    public static String web_title() {
+    public static String bcfdock_title() {
         return cfg("bcfdock_title").getString(Solon.cfg().appTitle());
     }
 

@@ -21,6 +21,6 @@ public class Config {
     @Init
     public void init() {
         bcf_db = new DbContext(Solon.cfg().getProp("bcf.db"));
-        CloudClient.configLoad("water_bcf", "bcfadmin.yml");
+        CloudClient.configLoad(Solon.cfg().appGroup(), "bcfadmin.yml");
     }
 }

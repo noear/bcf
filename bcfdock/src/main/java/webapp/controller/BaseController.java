@@ -43,13 +43,13 @@ public abstract class BaseController {
         //设置必要参数
         viewModel.put("root", "");
 
-        viewModel.put("app", Config.web_title());
-        viewModel.put("env",Config.alarm_sign());
+        viewModel.put("app", Config.bcfdock_title());
+        viewModel.put("env",Config.bcfdock_env());
 
         viewModel.put("css", "/_static/css");
         viewModel.put("js", "/_static/js");
         viewModel.put("img", "/_static/img");
-        viewModel.put("title", Config.web_title());
+        viewModel.put("title", Config.bcfdock_title());
 
 
         //当前用户信息(示例)

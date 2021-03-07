@@ -3,7 +3,7 @@ server.session.timeout: 7200
 
 solon.app:
   name: "bcfdock"
-  group: "water"
+  group: "water_bcf"
   title: "跨系统通用管理平台"
 
 #water.host: water
@@ -13,5 +13,4 @@ solon.app:
 solon.cloud.water:
   server: "water"
   config:
-    loadGroup: "water_bcf"
     loadKey: "bcf.yml"

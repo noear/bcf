@@ -69,12 +69,12 @@ public class HeaderTag implements TemplateDirectiveModel {
         sb.append("<label>"); //new
         //cls1
         if (bcfClient == null) {
-            sb.append(Config.web_title());
+            sb.append(Config.bcfdock_title());
         } else {
             BcfGroupModelEx root = bcfClient.getRoot();
 
             if (TextUtils.isEmpty(root.en_name)) {
-                sb.append(Config.web_title());
+                sb.append(Config.bcfdock_title());
             } else {
                 sb.append(root.en_name);
             }

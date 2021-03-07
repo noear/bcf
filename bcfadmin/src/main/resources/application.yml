@@ -3,7 +3,7 @@ server.session.timeout: 7200
 
 solon.app:
   name: bcfadmin
-  group: water
+  group: water_bcf
   title: BCF
 
 #water.host=water
@@ -15,5 +15,4 @@ bcfadmin.password: SykSYLWN9WTpzCHq
 solon.cloud.water:
   server: "water"
   config:
-    loadGroup: "water_bcf"
     loadKey: "bcf.yml"
