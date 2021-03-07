@@ -6,13 +6,11 @@ solon.app:
   group: water_bcf
   title: BCF
 
-#water.host=water
-#water.service.name=bcfadmin
-
-bcfadmin.user: admin
-bcfadmin.password: SykSYLWN9WTpzCHq
-
 solon.cloud.water:
   server: "water"
   config:
     loadKey: "bcf.yml"
+
+
+bcfadmin.user: admin
+bcfadmin.password: SykSYLWN9WTpzCHq
