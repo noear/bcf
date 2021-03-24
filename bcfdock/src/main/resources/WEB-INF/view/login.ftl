@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>${env!} - 登录</title>
+  <title>${app} - 登录</title>
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="stylesheet" href="${css}/main.css"/>
   <script src="/_session/domain.js"></script>
@@ -43,7 +43,7 @@
 <body onkeydown="checkKey()">
 
 <main>
-  <p>${env!} - ${title}</p>
+  <p>${title}</p>
 
   <section>
     <form method="post">
