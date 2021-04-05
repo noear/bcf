@@ -22,14 +22,14 @@ public abstract class BcfInterceptorBase {
         }
 
         if (uri.indexOf("/ajax/") < 0 && uri.startsWith("/login") ==false) {
-
-            if(getPUID()==0){
-                ctx.redirect("/login");
-                ctx.setHandled(true);
-                return;
-            }
-
             if (BcfClient.hasUrlpath(uri)) {
+
+                if(getPUID()==0){
+                    ctx.redirect("/login");
+                    ctx.setHandled(true);
+                    return;
+                }
+
                 if (verifyUrlpath(uri) == false) {
                     ctx.outputAsHtml("Sorry, no permission!");
                     ctx.setHandled(true);
