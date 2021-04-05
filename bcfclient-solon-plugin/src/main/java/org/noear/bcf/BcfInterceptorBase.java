@@ -21,7 +21,7 @@ public abstract class BcfInterceptorBase {
             ctx.attrSet("user_name", BcfSessionBase.global().getUserName());
         }
 
-        if (uri.indexOf("/ajax/") < 0 && uri.equals("/login") ==false) {
+        if (uri.indexOf("/ajax/") < 0 && uri.startsWith("/login") ==false) {
 
             if(getPUID()==0){
                 ctx.redirect("/login");
