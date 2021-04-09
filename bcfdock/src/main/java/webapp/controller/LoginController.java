@@ -31,8 +31,10 @@ import java.util.Random;
 public class LoginController extends BaseController {
 
     @Mapping("/login") //视图 返回
-    public ModelAndView login() {
+    public ModelAndView login(Context ctx) {
         //Config.regWater(request);
+
+        ctx.sessionClear();
 
         return view("login");
     }
