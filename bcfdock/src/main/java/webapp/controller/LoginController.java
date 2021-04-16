@@ -5,24 +5,26 @@ import org.noear.bcf.BcfUtilEx;
 import org.noear.bcf.models.BcfGroupModelEx;
 import org.noear.bcf.models.BcfResourceModelEx;
 import org.noear.bcf.models.BcfUserModel;
+import org.noear.solon.Solon;
 import org.noear.solon.annotation.Controller;
 import org.noear.solon.annotation.Mapping;
 import org.noear.solon.core.handle.MethodType;
 import org.noear.solon.core.handle.ModelAndView;
 import org.noear.solon.core.handle.Context;
+import org.noear.water.WaterClient;
+import org.noear.water.utils.IPUtils;
 import org.noear.water.utils.ImageUtils;
 import org.noear.water.utils.RandomUtils;
 import org.noear.water.utils.TextUtils;
+import org.noear.weed.Command;
+import webapp.Config;
 import webapp.dao.Session;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by noear on 14-9-10.
@@ -65,6 +67,13 @@ public class LoginController extends BaseController {
             return viewModel.set("code", 0).set("msg", "提示：账号或密码不对！"); //set 直接返回；有利于设置后直接返回，不用另起一行
         else {
             Session.current().loadModel(user);
+
+
+            //添加行为记录
+            Command cmd = new Command(Config.db(),null);
+            cmd.text = "SELECT * FROM bcf_user ...";
+            cmd.paramS = new ArrayList<>();
+            WaterClient.Track.track(Solon.cfg().appName(), cmd, ctx.userAgent(), ctx.path(), user.puid + "." + user.cn_name, IPUtils.getIP(ctx));
 
             //新方案 //20181120,(uadmin)
 

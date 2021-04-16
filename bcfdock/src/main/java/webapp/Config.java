@@ -20,11 +20,16 @@ public class Config {
         return cfg("bcfdock_title").getString(Solon.cfg().appTitle());
     }
 
+    private static DbContext db;
+    public  static DbContext db(){
+        return db;
+    }
+
     @Init
     public void init() {
-        DbContext bcf_db = new DbContext(Solon.cfg().getProp("bcf.db"));
+        db = new DbContext(Solon.cfg().getProp("bcf.db"));
 
-        BcfClientEx.tryInit(CacheUtil.dataCache, bcf_db);
+        BcfClientEx.tryInit(CacheUtil.dataCache, db);
     }
 
     //获取一个缓存配置
