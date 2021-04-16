@@ -17,6 +17,7 @@ import org.noear.water.utils.ImageUtils;
 import org.noear.water.utils.RandomUtils;
 import org.noear.water.utils.TextUtils;
 import org.noear.weed.Command;
+import org.noear.weed.Variate;
 import webapp.Config;
 import webapp.dao.Session;
 
@@ -69,10 +70,12 @@ public class LoginController extends BaseController {
             Session.current().loadModel(user);
 
 
-            //添加行为记录
+            //添加登录行为记录
             Command cmd = new Command(Config.db(),null);
-            cmd.text = "SELECT * FROM bcf_user ...";
+            cmd.text = "SELECT * FROM bcf_user WHERE User_Id=? AND Pass_Wd=? AND Is_Disabled=0";
             cmd.paramS = new ArrayList<>();
+            cmd.paramS.add(new Variate("userName",userName));
+            cmd.paramS.add(new Variate("passWord",passWord));
             WaterClient.Track.track(Solon.cfg().appName(), cmd, ctx.userAgent(), ctx.path(), user.puid + "." + user.cn_name, IPUtils.getIP(ctx));
 
             //新方案 //20181120,(uadmin)
