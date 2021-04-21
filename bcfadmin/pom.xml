@@ -35,6 +35,12 @@
             <version>${solon.ver}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.noear</groupId>
+            <artifactId>water.client</artifactId>
+            <version>${water.ver}</version>
+        </dependency>
+
         <!--update-->
         <dependency>
             <groupId>commons-lang</groupId>
