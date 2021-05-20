@@ -4,7 +4,6 @@ package webapp.controller;
 import org.noear.solon.Solon;
 import org.noear.solon.core.handle.Context;
 import org.noear.solon.core.handle.ModelAndView;
-import org.noear.water.utils.IPUtils;
 
 
 /**
@@ -29,8 +28,7 @@ public abstract class BaseController {
     }
 
     public String getIP(Context request) {
-
-        return IPUtils.getIP(request);
+        return request.realIp();
 
     }
 

@@ -12,7 +12,6 @@ import org.noear.solon.core.handle.MethodType;
 import org.noear.solon.core.handle.ModelAndView;
 import org.noear.solon.core.handle.Context;
 import org.noear.water.WaterClient;
-import org.noear.water.utils.IPUtils;
 import org.noear.water.utils.ImageUtils;
 import org.noear.water.utils.RandomUtils;
 import org.noear.water.utils.TextUtils;
@@ -78,7 +77,7 @@ public class LoginController extends BaseController {
             cmd.paramS = new ArrayList<>();
             cmd.paramS.add(new Variate("userName",userName));
             cmd.paramS.add(new Variate("passWord",secretPassWd));
-            WaterClient.Track.track(Solon.cfg().appName(), cmd, ctx.userAgent(), ctx.path(), user.puid + "." + user.cn_name, IPUtils.getIP(ctx));
+            WaterClient.Track.track(Solon.cfg().appName(), cmd, ctx.userAgent(), ctx.path(), user.puid + "." + user.cn_name, ctx.realIp());
 
             //新方案 //20181120,(uadmin)
 

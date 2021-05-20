@@ -3,7 +3,6 @@ package webapp.controller;
 
 import org.noear.solon.core.handle.ModelAndView;
 import org.noear.solon.core.handle.Context;
-import org.noear.water.utils.IPUtils;
 import webapp.Config;
 import webapp.dao.Session;
 
@@ -11,19 +10,17 @@ import webapp.dao.Session;
 public abstract class BaseController {
 
     //获取 StateSelectorTag 传来的值
-    public int getState(Context context)
+    public int getState(Context ctx)
     {
-        return getInt(context,"_state");
+        return getInt(ctx,"_state");
     }
 
-    public int getInt(Context context, String key) {
-        return context.paramAsInt(key);
+    public int getInt(Context ctx, String key) {
+        return ctx.paramAsInt(key);
     }
 
-    public String getIP(Context context) {
-
-        return IPUtils.getIP(context);
-
+    public String getIP(Context ctx) {
+        return ctx.realIp();
     }
 
     /*视图数据模型*/

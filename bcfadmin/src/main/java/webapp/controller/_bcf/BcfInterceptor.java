@@ -6,7 +6,6 @@ import org.noear.solon.annotation.Mapping;
 import org.noear.solon.core.handle.Context;
 import org.noear.solon.core.handle.Handler;
 import org.noear.water.WaterClient;
-import org.noear.water.utils.IPUtils;
 
 @Mapping(value = "**", before = true)
 @Component
@@ -18,7 +17,7 @@ public class BcfInterceptor implements Handler {
         String path = ctx.path();
 
         if (ctx.uri().getHost().indexOf("localhost") < 0) {
-            String ip = IPUtils.getIP(ctx);
+            String ip = ctx.realIp();
 
             if(Solon.cfg().isWhiteMode()) {
                 if (WaterClient.Whitelist.existsOfServerIp(ip) == false) {
