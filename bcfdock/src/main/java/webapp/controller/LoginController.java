@@ -72,7 +72,7 @@ public class LoginController extends BaseController {
             //添加登录行为记录
             String secretPassWd = BcfUtilEx.buildBcfPassWd(userName, passWord);
 
-            Command cmd = new Command(Config.db(),null);
+            Command cmd = new Command(Config.db());
             cmd.text = "SELECT * FROM bcf_user WHERE User_Id=? AND Pass_Wd=? AND Is_Disabled=0";
             cmd.paramS = new ArrayList<>();
             cmd.paramS.add(new Variate("userName",userName));
