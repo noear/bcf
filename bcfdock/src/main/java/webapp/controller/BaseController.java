@@ -6,6 +6,8 @@ import org.noear.solon.core.handle.Context;
 import webapp.Config;
 import webapp.dao.Session;
 
+import java.time.LocalDateTime;
+
 
 public abstract class BaseController {
 
@@ -47,6 +49,8 @@ public abstract class BaseController {
         viewModel.put("js", "/_static/js");
         viewModel.put("img", "/_static/img");
         viewModel.put("title", Config.bcfdock_title());
+
+        viewModel.put("currenttime", "(" + LocalDateTime.now().toString() + ")");
 
 
         //当前用户信息(示例)
