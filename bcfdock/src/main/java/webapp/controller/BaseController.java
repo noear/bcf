@@ -3,6 +3,7 @@ package webapp.controller;
 
 import org.noear.solon.core.handle.ModelAndView;
 import org.noear.solon.core.handle.Context;
+import org.noear.water.utils.Datetime;
 import webapp.Config;
 import webapp.dao.Session;
 
@@ -50,7 +51,8 @@ public abstract class BaseController {
         viewModel.put("img", "/_static/img");
         viewModel.put("title", Config.bcfdock_title());
 
-        viewModel.put("currenttime", "(" + LocalDateTime.now().toString() + ")");
+
+        viewModel.put("currenttime", Datetime.Now().toString("(yyyy-MM-dd HH:mm Z)"));
 
 
         //当前用户信息(示例)
