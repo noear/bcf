@@ -7,7 +7,7 @@ import org.noear.solon.annotation.Init;
 import org.noear.water.model.ConfigM;
 import org.noear.weed.DbContext;
 import org.noear.water.*;
-import webapp.dao.CacheUtil;
+import webapp.dso.CacheUtil;
 
 @Configuration
 public class Config {

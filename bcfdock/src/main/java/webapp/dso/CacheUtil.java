@@ -1,4 +1,4 @@
-package webapp.dao;
+package webapp.dso;
 
 import org.noear.solon.Solon;
 import org.noear.weed.cache.ICacheServiceEx;

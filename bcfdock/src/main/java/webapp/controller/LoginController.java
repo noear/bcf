@@ -18,7 +18,7 @@ import org.noear.water.utils.TextUtils;
 import org.noear.weed.Command;
 import org.noear.weed.Variate;
 import webapp.Config;
-import webapp.dao.Session;
+import webapp.dso.Session;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

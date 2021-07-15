@@ -1,9 +1,8 @@
-package webapp.dao;
+package webapp.dso;
 
 import org.noear.bcf.models.BcfUserModel;
 import org.noear.bcf.BcfSessionBase;
 import org.noear.solon.Solon;
-import webapp.Config;
 
 
 //Session对象

@@ -12,8 +12,8 @@ import org.noear.bcf.models.BcfResourceModelEx;
 import org.noear.solon.annotation.Component;
 import org.noear.solon.core.handle.Context;
 import org.noear.water.utils.TextUtils;
-import webapp.dao.Session;
-import webapp.dao.bcf.BcfTool;
+import webapp.dso.Session;
+import webapp.dso.bcf.BcfTool;
 
 import java.io.IOException;
 import java.io.StringWriter;

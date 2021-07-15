@@ -6,7 +6,7 @@ import org.noear.solon.annotation.Mapping;
 import org.noear.solon.core.handle.Context;
 import org.noear.solon.core.handle.Handler;
 import org.noear.water.WaterClient;
-import webapp.dao.Session;
+import webapp.dso.Session;
 
 @Mapping(value = "**", before = true)
 @Component

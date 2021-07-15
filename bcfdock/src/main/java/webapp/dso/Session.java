@@ -1,4 +1,4 @@
-package webapp.dao;
+package webapp.dso;
 
 
 public final class Session {
