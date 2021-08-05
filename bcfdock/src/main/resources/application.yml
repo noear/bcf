@@ -11,6 +11,6 @@ solon.app:
 #water.service.secretKey: oYjS1xaM2oPfEyKc
 
 solon.cloud.water:
-  server: "water"
+  server: "waterapi.water"
   config:
     loadKey: "bcf.yml"
