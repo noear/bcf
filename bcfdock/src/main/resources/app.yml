@@ -1,5 +1,5 @@
 server.port: 8124
-server.session.timeout: 7200
+server.session.timeout: 36000
 
 solon.app:
   name: "bcfdock"
