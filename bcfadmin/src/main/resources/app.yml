@@ -2,12 +2,12 @@ server.port: 8123
 server.session.timeout: 7200
 
 solon.app:
-  name: bcfadmin
-  group: water_bcf
-  title: BCF
+  name: "bcfadmin"
+  group: "water_bcf"
+  title: "BCF"
 
 solon.cloud.water:
-  server: "waterapi.water"
+  server: "waterapi"
   config:
     loadKey: "bcf.yml"
 
