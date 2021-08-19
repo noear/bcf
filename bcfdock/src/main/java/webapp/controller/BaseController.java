@@ -50,7 +50,7 @@ public abstract class BaseController {
         viewModel.put("title", Config.bcfdock_title());
 
 
-        viewModel.put("currenttime", Datetime.Now().toString("(yyyy-MM-dd HH:mm Z)"));
+        viewModel.put("timenow", Datetime.Now().toString("(yyyy-MM-dd HH:mm Z)"));
 
 
         //当前用户信息(示例)
