@@ -32,7 +32,7 @@ public class DockController extends BaseController {
         int puid = Session.current().getPUID();
 
         //获取所有模块菜单
-        CacheUsing cu  =new CacheUsing(Config.cache);
+        CacheUsing cu  =new CacheUsing(Config.cache());
         MenuViewModel vm = cu.getEx("user_menus_x_"+puid,()-> BcfTool.buildSystemMenus());
 
         int section_margin = 20;
