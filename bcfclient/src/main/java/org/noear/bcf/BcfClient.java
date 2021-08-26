@@ -85,7 +85,11 @@ public final class BcfClient {
             }
 
             if (person != null) {
-                return login(userID);
+                //ldap登录成功后，直接查出用户信息
+                return db().table("bcf_user")
+                        .where("User_Id=? AND Is_Disabled=0", userID)
+                        .log(true)
+                        .selectItem("*", BcfUserModel.class);
             } else {
                 return new BcfUserModel();
             }
@@ -98,14 +102,6 @@ public final class BcfClient {
                     .log(true)
                     .selectItem("*", BcfUserModel.class);
         }
-    }
-
-    public static BcfUserModel login(String userID) throws SQLException {
-
-        return db().table("bcf_user")
-                .where("User_Id=? AND Is_Disabled=0", userID)
-                .log(true)
-                .selectItem("*", BcfUserModel.class);
     }
 
     public static BcfUserModel login(int puid) throws SQLException {
