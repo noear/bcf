@@ -8,9 +8,6 @@ import org.noear.snack.ONode;
 import org.noear.weed.DbContext;
 import org.noear.weed.cache.ICacheServiceEx;
 
-
-import javax.naming.NamingException;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;

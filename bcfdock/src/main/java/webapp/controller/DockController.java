@@ -11,7 +11,7 @@ import org.noear.solon.annotation.Controller;
 import org.noear.solon.annotation.Mapping;
 import org.noear.solon.core.handle.ModelAndView;
 import org.noear.solon.core.handle.Context;
-import webapp.dso.CacheUtil;
+import webapp.Config;
 import webapp.dso.Session;
 import webapp.dso.bcf.BcfTool;
 import webapp.models.MenuViewModel;
@@ -32,7 +32,7 @@ public class DockController extends BaseController {
         int puid = Session.current().getPUID();
 
         //获取所有模块菜单
-        CacheUsing cu  =new CacheUsing(CacheUtil.dataCache);
+        CacheUsing cu  =new CacheUsing(Config.cache);
         MenuViewModel vm = cu.getEx("user_menus_x_"+puid,()-> BcfTool.buildSystemMenus());
 
         int section_margin = 20;
