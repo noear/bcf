@@ -74,6 +74,11 @@ public final class BcfClient {
 
     /*登录*/
     public static BcfUserModel login(String userID, String password) throws Exception {
+        if (password == null || password.length() < 4) {
+            //密码太短不让登录
+            return new BcfUserModel();
+        }
+
         if (ldapClient != null) {
             //尝试用ldap登录
             LdapPerson person = null;
