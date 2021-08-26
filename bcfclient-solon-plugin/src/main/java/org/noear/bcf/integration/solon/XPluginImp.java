@@ -2,6 +2,7 @@ package org.noear.bcf.integration.solon;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.noear.bcf.BcfClient;
+import org.noear.okldap.LdapClient;
 import org.noear.solon.Solon;
 import org.noear.solon.SolonApp;
 import org.noear.solon.Utils;
@@ -21,14 +22,19 @@ public class XPluginImp implements Plugin {
 
         Properties p_cache = app.cfg().getProp("bcf.cache");
         Properties p_db = app.cfg().getProp("bcf.db");
+        Properties p_ldap = app.cfg().getProp("bcf.ldap");
 
         //1.初始化
         if (p_cache.size() > 1 && p_db.size() > 1 && p_root != null) {
 
             MemCache cache = new MemCache(p_cache);
             DbContext db = getDbDo(p_db);
+            LdapClient ldapClient = null;
+            if(p_ldap.size() > 0){
+                ldapClient = new LdapClient(p_ldap);
+            }
 
-            BcfClient.tryInit(p_root, cache, db);
+            BcfClient.tryInit(p_root, cache, db, ldapClient);
         }
 
         //2.加载domain.js

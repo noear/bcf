@@ -6,7 +6,7 @@
 
     <groupId>org.noear</groupId>
     <artifactId>bcf-parent</artifactId>
-    <version>2.1.4</version>
+    <version>2.1.5</version>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
@@ -38,9 +38,10 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
 
-        <solon.ver>1.5.24</solon.ver>
-        <weed3.ver>3.3.19</weed3.ver>
+        <solon.ver>1.5.25</solon.ver>
+        <weed3.ver>3.3.20</weed3.ver>
         <snack3.ver>3.1.18</snack3.ver>
+        <okldap.ver>1.1</okldap.ver>
     </properties>
 
 
@@ -87,6 +88,12 @@
                 <groupId>org.noear</groupId>
                 <artifactId>snack3</artifactId>
                 <version>${snack3.ver}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.noear</groupId>
+                <artifactId>okldap</artifactId>
+                <version>${okldap.ver}</version>
             </dependency>
 
             <dependency>

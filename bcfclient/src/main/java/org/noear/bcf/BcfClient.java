@@ -1,11 +1,16 @@
 package org.noear.bcf;
 
 import org.noear.bcf.models.*;
+import org.noear.okldap.LdapClient;
+import org.noear.okldap.LdapSession;
+import org.noear.okldap.entity.LdapPerson;
 import org.noear.snack.ONode;
 import org.noear.weed.DbContext;
 import org.noear.weed.cache.ICacheServiceEx;
 
 
+import javax.naming.NamingException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +21,19 @@ public final class BcfClient {
 
     private static DbContext res_db;
     private static ICacheServiceEx res_cache;
+    private static LdapClient ldapClient;
 
     public static void tryInit(String bcf_root_code, ICacheServiceEx bcf_cache, DbContext db){
         res_root_code = bcf_root_code;
         res_db = db;
         res_cache = bcf_cache;
+    }
+
+    public static void tryInit(String bcf_root_code, ICacheServiceEx bcf_cache, DbContext db, LdapClient ldap){
+        res_root_code = bcf_root_code;
+        res_db = db;
+        res_cache = bcf_cache;
+        ldapClient = ldap;
     }
 
     private static void tryInitResRootId() throws SQLException {
@@ -63,22 +76,43 @@ public final class BcfClient {
     }
 
     /*登录*/
-    public static BcfUserModel login(String userID, String password) throws SQLException {
-        String secretPassWd = BcfUtil.buildBcfPassWd(userID, password);
+    public static BcfUserModel login(String userID, String password) throws Exception {
+        if (ldapClient != null) {
+            //尝试用ldap登录
+            LdapPerson person = null;
+            try (LdapSession session = ldapClient.open()) {
+                person = session.findPersonOne(userID, password);
+            }
+
+            if (person != null) {
+                return login(userID);
+            } else {
+                return new BcfUserModel();
+            }
+        } else {
+            //如果ldap失败，用原生账号登录
+            String secretPassWd = BcfUtil.buildBcfPassWd(userID, password);
+
+            return db().table("bcf_user")
+                    .where("User_Id=? AND Pass_Wd=? AND Is_Disabled=0", userID, secretPassWd)
+                    .log(true)
+                    .selectItem("*", BcfUserModel.class);
+        }
+    }
+
+    public static BcfUserModel login(String userID) throws SQLException {
 
         return db().table("bcf_user")
-                .where("User_Id=? AND Pass_Wd=? AND Is_Disabled=0", userID, secretPassWd)
+                .where("User_Id=? AND Is_Disabled=0", userID)
                 .log(true)
-                .select("*")
-                .getItem(new BcfUserModel());
+                .selectItem("*", BcfUserModel.class);
     }
 
     public static BcfUserModel login(int puid) throws SQLException {
         return db().table("bcf_user")
                 .where("puid=? AND Is_Disabled=0", puid)
                 .log(false)
-                .select("*")
-                .getItem(new BcfUserModel());
+                .selectItem("*", BcfUserModel.class);
     }
 
 
