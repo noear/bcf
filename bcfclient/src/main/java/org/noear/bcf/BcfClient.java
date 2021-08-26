@@ -83,10 +83,19 @@ public final class BcfClient {
 
             if (person != null) {
                 //ldap登录成功后，直接查出用户信息
-                return db().table("bcf_user")
+                BcfUserModel user = db().table("bcf_user")
                         .where("User_Id=? AND Is_Disabled=0", userID)
                         .log(true)
                         .selectItem("*", BcfUserModel.class);
+
+                if (user.puid == 0) {
+                    //如果bcf没有这个账号，则虚拟一个
+                    user.puid = Integer.MAX_VALUE;
+                    user.user_id = userID;
+                    user.cn_name = person.getDisplayName();
+                }
+
+                return user;
             } else {
                 return new BcfUserModel();
             }
