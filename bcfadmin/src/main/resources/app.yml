@@ -1,5 +1,5 @@
 server.port: 8123
-server.session.timeout: 7200
+server.session.timeout: 360000 #10h
 
 solon.app:
   name: "bcfadmin"
@@ -9,7 +9,7 @@ solon.app:
 solon.cloud.water:
   server: "waterapi"
   config:
-    loadKey: "bcf.yml"
+    load: "bcf.yml"
 
 
 bcfadmin.user: admin

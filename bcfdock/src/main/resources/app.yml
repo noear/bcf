@@ -1,5 +1,5 @@
 server.port: 8124
-server.session.timeout: 36000
+server.session.timeout: 360000 #10h
 
 solon.app:
   name: "bcfdock"
@@ -9,4 +9,4 @@ solon.app:
 solon.cloud.water:
   server: "waterapi"
   config:
-    loadKey: "bcf.yml"
+    load: "bcf.yml"
