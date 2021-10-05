@@ -5,6 +5,7 @@ import org.noear.solon.annotation.Component;
 import org.noear.solon.annotation.Mapping;
 import org.noear.solon.core.handle.Context;
 import org.noear.solon.core.handle.Handler;
+import org.noear.solon.extend.health.HealthHandler;
 import org.noear.water.WaterClient;
 
 @Mapping(value = "**", before = true)
@@ -19,7 +20,7 @@ public class BcfInterceptor implements Handler {
         if (ctx.uri().getHost().indexOf("localhost") < 0) {
             String ip = ctx.realIp();
 
-            if(Solon.cfg().isWhiteMode()) {
+            if (Solon.cfg().isWhiteMode()) {
                 if (WaterClient.Whitelist.existsOfServerIp(ip) == false) {
                     ctx.setHandled(true);
                     ctx.output(ip + ",not is whitelist!");
@@ -31,7 +32,8 @@ public class BcfInterceptor implements Handler {
         if (path.indexOf("/ajax/") >= 0 ||
                 path.startsWith("/login") ||
                 path.startsWith("/run/") ||
-                path.startsWith("/msg/")) {
+                path.startsWith("/msg/") ||
+                path.equals(HealthHandler.HANDLER_PATH)) {
             return;
         }
 
