@@ -57,8 +57,6 @@ public class XPluginImp implements Plugin {
         }
 
 
-        DbContext db = new DbContext();
-
         HikariDataSource source = new HikariDataSource();
 
         String schema = prop.getProperty("schema");
@@ -86,10 +84,7 @@ public class XPluginImp implements Plugin {
             source.setDriverClassName(driverClassName);
         }
 
-        db.dataSourceSet(source);
-        db.schemaSet(schema);
-
-        return db;
+        return new DbContext(source, schema);
     }
 
     private static boolean isEmpty(String str) {
