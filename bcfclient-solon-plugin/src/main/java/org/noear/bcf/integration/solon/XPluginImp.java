@@ -8,7 +8,9 @@ import org.noear.solon.SolonApp;
 import org.noear.solon.Utils;
 import org.noear.solon.core.Plugin;
 import org.noear.weed.DbContext;
+import org.noear.weed.cache.ICacheServiceEx;
 import org.noear.weed.cache.memcached.MemCache;
+import org.noear.weed.cache.redis.RedisCache;
 
 import java.util.Properties;
 
@@ -27,7 +29,7 @@ public class XPluginImp implements Plugin {
         //1.初始化
         if (p_cache.size() > 1 && p_db.size() > 1 && p_root != null) {
 
-            MemCache cache = new MemCache(p_cache);
+            ICacheServiceEx cache = getCh(p_cache);
             DbContext db = getDbDo(p_db);
             LdapClient ldapClient = null;
             if(p_ldap.size() > 0){
@@ -89,5 +91,14 @@ public class XPluginImp implements Plugin {
 
     private static boolean isEmpty(String str) {
         return str == null || str.length() == 0;
+    }
+
+
+    private static ICacheServiceEx getCh(Properties prop) {
+        if ("redis".equals(prop.getProperty("type"))) {
+            return new RedisCache(prop);
+        } else {
+            return new MemCache(prop);
+        }
     }
 }

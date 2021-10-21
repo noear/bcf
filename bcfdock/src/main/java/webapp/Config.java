@@ -6,10 +6,10 @@ import org.noear.solon.Solon;
 import org.noear.solon.annotation.Configuration;
 import org.noear.solon.annotation.Init;
 import org.noear.water.model.ConfigM;
+import org.noear.water.utils.CacheUtils;
 import org.noear.weed.DbContext;
 import org.noear.water.*;
 import org.noear.weed.cache.ICacheServiceEx;
-import org.noear.weed.cache.memcached.MemCache;
 
 import java.util.Properties;
 
@@ -42,7 +42,7 @@ public class Config {
         Properties p_ldap = Solon.cfg().getProp("bcf.ldap");
 
         db = new DbContext(p_db);
-        cache = new MemCache(p_cache);
+        cache = CacheUtils.getCh(p_cache);
 
         LdapClient ldapClient = null;
         if (p_ldap.size() > 0) {

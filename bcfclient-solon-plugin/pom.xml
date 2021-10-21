@@ -49,6 +49,12 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.noear</groupId>
+            <artifactId>weed3.cache.redis</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
 </project>
