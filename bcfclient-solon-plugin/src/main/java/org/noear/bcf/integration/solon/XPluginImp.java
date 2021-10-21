@@ -18,7 +18,7 @@ public class XPluginImp implements Plugin {
     @Override
     public void start(SolonApp app) {
         String p_root = app.cfg().get("bcf.root");
-        if(Utils.isEmpty(p_root)){
+        if (Utils.isEmpty(p_root)) {
             p_root = Solon.cfg().appName();
         }
 
@@ -32,7 +32,7 @@ public class XPluginImp implements Plugin {
             ICacheServiceEx cache = getCh(p_cache);
             DbContext db = getDbDo(p_db);
             LdapClient ldapClient = null;
-            if(p_ldap.size() > 0){
+            if (p_ldap.size() > 0) {
                 ldapClient = new LdapClient(p_ldap);
             }
 
@@ -95,7 +95,7 @@ public class XPluginImp implements Plugin {
 
 
     private static ICacheServiceEx getCh(Properties prop) {
-        if ("redis".equals(prop.getProperty("type"))) {
+        if ("redis".equals(prop.getProperty("driverType"))) {
             return new RedisCache(prop);
         } else {
             return new MemCache(prop);
