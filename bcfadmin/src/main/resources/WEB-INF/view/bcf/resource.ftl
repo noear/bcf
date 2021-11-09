@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="${css}/main.css"/>
     <link rel="stylesheet" href="${js}/zTree/zTreeStyle.css" type="text/css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" />
-    <script src="/_session/domain.js"></script>
     <script src="${js}/lib.js"></script>
     <script src="${js}/layer.js"></script>
     <script src="${js}/zTree/jquery.ztree.core.min.js"></script>
