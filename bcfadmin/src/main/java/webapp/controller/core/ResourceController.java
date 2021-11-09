@@ -123,9 +123,9 @@ public class ResourceController extends BaseController {
      * @return webapp.controller.ViewModel
      */
     @Mapping("link/remove/resource_user")
-    public ViewModel removeUserFromResource( String[] puids, Integer rsid) throws Exception {
+    public ViewModel removeUserFromResource( String puids, Integer rsid) throws Exception {
 
-        for (String puid : puids) {
+        for (String puid : puids.split(",")) {
 
             DbBcfResourceApi.removeResourceLinkByOpt(Config.lk_objt_user, Integer.parseInt(puid), rsid, Config.BCF_RESOURCE_LINKED);
 

@@ -26,13 +26,19 @@
 
         <dependency>
             <groupId>org.noear</groupId>
-            <artifactId>weed3</artifactId>
+            <artifactId>water-solon-plugin</artifactId>
+            <version>${solon.ver}</version>
         </dependency>
 
         <dependency>
             <groupId>org.noear</groupId>
-            <artifactId>water-solon-plugin</artifactId>
+            <artifactId>solon.extend.sessionstate.jwt</artifactId>
             <version>${solon.ver}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.noear</groupId>
+            <artifactId>weed3</artifactId>
         </dependency>
 
         <!--update-->

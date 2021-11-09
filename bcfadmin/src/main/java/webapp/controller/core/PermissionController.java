@@ -88,9 +88,9 @@ public class PermissionController extends BaseController {
     }
 
     @Mapping("link/user")
-    public ViewModel linkResource(Integer lk_objt_id, String[] psids, Integer lk_objt) throws SQLException {
+    public ViewModel linkResource(Integer lk_objt_id, String psids, Integer lk_objt) throws SQLException {
 
-        for (String psid : psids) {
+        for (String psid : psids.split(",")) {
             DbBcfUserApi.linkUserByOpt(lk_objt_id, Integer.parseInt(psid), lk_objt);
         }
 
@@ -106,9 +106,9 @@ public class PermissionController extends BaseController {
      * @date 2019/5/7 3:50 PM
      */
     @Mapping("link/remove/user")
-    public ViewModel removeLink(Integer lk_objt, Integer lk_objt_id, String[] columnIds) throws Exception {
+    public ViewModel removeLink(Integer lk_objt, Integer lk_objt_id, String columnIds) throws Exception {
 
-        for (String firstColumnId : columnIds) {
+        for (String firstColumnId : columnIds.split(",")) {
 
             DbBcfResourceApi.removeResourceLinkByOpt(lk_objt, lk_objt_id, Integer.parseInt(firstColumnId), Config.BCF_RESOURCE_LINKED);
 
