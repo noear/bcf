@@ -773,16 +773,21 @@
 
             }
         })
-        layer.load(2, {time: 5*1000})
+
+        layer.load(2, {time: 5*1000});
+
         $.ajax({
             type: 'post',
             url: '/bcf/group/add',
             data: data,
             success: function (data) {
                 if (data.code === 1) {
-                    layer.closeAll()
-                    layer.msg(data.msg)
-                    window.location.reload()
+                    layer.closeAll();
+                    layer.msg(data.msg);
+
+                    if(!data.pgid){
+                        window.location.reload();
+                    }
                 }
             }
         })
