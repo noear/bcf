@@ -11,4 +11,6 @@ Bcf studio，是 Bcf 资源、账号以及权限管理的桌面工具
 
 #### 2) 运行说明：
 
-解压后。修改 bcf studio.exe.config 里的链接配置，然后运行 bcf studio.exe
+* 下载 studio.rar，并解压
+* 修改 bcf studio.exe.config 里的链接配置
+* 然后运行 bcf studio.exe
